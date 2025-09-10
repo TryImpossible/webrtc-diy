@@ -9,6 +9,7 @@ function Samples() {
       { title: '打开摄像头', path: '/camera' },
       { title: '打开麦克风', path: '/microphone' },
       { title: '截取视频', path: '/canvas' },
+      { title: '共享屏幕', path: '/screen-sharing' },
     ],
     [],
   );

@@ -5,6 +5,7 @@ import Samples from './Samples';
 import Camera from './Camera';
 import Microphone from './Microphone';
 import Canvas from './Canvas';
+import ScreenSharing from './ScreenSharing';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/camera" Component={Camera} exact />
         <Route path="/microphone" Component={Microphone} exact />
         <Route path="/canvas" Component={Canvas} exact />
+        <Route path="/screen-sharing" Component={ScreenSharing} exact />
       </Routes>
     </Router>
   );
