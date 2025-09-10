@@ -10,6 +10,7 @@ function Samples() {
       { title: '打开麦克风', path: '/microphone' },
       { title: '截取视频', path: '/canvas' },
       { title: '共享屏幕', path: '/screen-sharing' },
+      { title: '视频滤镜', path: '/video-filter' },
     ],
     [],
   );
