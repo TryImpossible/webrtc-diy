@@ -1,0 +1,2 @@
+cd webrtc-react
+pnpm exec lint-staged

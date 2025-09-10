@@ -1,0 +1,26 @@
+# 忽略配置文件
+.editorconfig
+.gitignore
+.prettierignore
+.husky/**
+pnpm-lock.yaml
+.git
+.svn
+.vscode
+.idea
+.DS_Store
+
+# Ignore artifacts:
+build
+dist
+coverage
+node_modules
+
+# 忽略静态资源
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.webp
