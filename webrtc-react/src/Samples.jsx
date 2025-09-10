@@ -11,6 +11,7 @@ function Samples() {
       { title: '截取视频', path: '/canvas' },
       { title: '共享屏幕', path: '/screen-sharing' },
       { title: '视频滤镜', path: '/video-filter' },
+      { title: '分辨率设置', path: '/resolution' },
     ],
     [],
   );
