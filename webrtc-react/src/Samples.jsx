@@ -6,8 +6,9 @@ function Samples() {
   const data = useMemo(
     () => [
       { title: '首页', path: '/' },
-      { title: '摄像头', path: '/camera' },
-      { title: '麦克风', path: '/microphone' },
+      { title: '打开摄像头', path: '/camera' },
+      { title: '打开麦克风', path: '/microphone' },
+      { title: '截取视频', path: '/canvas' },
     ],
     [],
   );
