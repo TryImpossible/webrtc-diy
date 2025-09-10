@@ -7,6 +7,7 @@ function Samples() {
     () => [
       { title: '首页', path: '/' },
       { title: '摄像头', path: '/camera' },
+      { title: '麦克风', path: '/microphone' },
     ],
     [],
   );

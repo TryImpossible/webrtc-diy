@@ -3,6 +3,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Samples from './Samples';
 import Camera from './Camera';
+import Microphone from './Microphone';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" Component={Samples} exact />
         <Route path="/camera" Component={Camera} exact />
+        <Route path="/microphone" Component={Microphone} exact />
       </Routes>
     </Router>
   );
