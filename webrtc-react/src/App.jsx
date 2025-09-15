@@ -8,6 +8,7 @@ import Canvas from './Canvas';
 import ScreenSharing from './ScreenSharing';
 import VideoFilter from './VideoFilter';
 import Resolution from './Resolution';
+import AudioVolume from './volume/AudioVolume';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/screen-sharing" Component={ScreenSharing} exact />
         <Route path="/video-filter" Component={VideoFilter} exact />
         <Route path="/resolution" Component={Resolution} exact />
+        <Route path="/audio-volume" Component={AudioVolume} exact />
       </Routes>
     </Router>
   );

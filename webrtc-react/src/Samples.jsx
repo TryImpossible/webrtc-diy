@@ -12,6 +12,7 @@ function Samples() {
       { title: '共享屏幕', path: '/screen-sharing' },
       { title: '视频滤镜', path: '/video-filter' },
       { title: '分辨率设置', path: '/resolution' },
+      { title: '音量检测', path: '/audio-volume' },
     ],
     [],
   );
