@@ -9,6 +9,7 @@ import ScreenSharing from './ScreenSharing';
 import VideoFilter from './VideoFilter';
 import Resolution from './Resolution';
 import AudioVolume from './volume/AudioVolume';
+import DeviceSelect from './DeviceSelect';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/video-filter" Component={VideoFilter} exact />
         <Route path="/resolution" Component={Resolution} exact />
         <Route path="/audio-volume" Component={AudioVolume} exact />
+        <Route path="/device-select" Component={DeviceSelect} exact />
       </Routes>
     </Router>
   );

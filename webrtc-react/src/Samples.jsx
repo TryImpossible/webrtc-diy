@@ -13,6 +13,7 @@ function Samples() {
       { title: '视频滤镜', path: '/video-filter' },
       { title: '分辨率设置', path: '/resolution' },
       { title: '音量检测', path: '/audio-volume' },
+      { title: '设备枚举', path: '/device-select' },
     ],
     [],
   );
