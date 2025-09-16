@@ -14,6 +14,7 @@ function Samples() {
       { title: '分辨率设置', path: '/resolution' },
       { title: '音量检测', path: '/audio-volume' },
       { title: '设备枚举', path: '/device-select' },
+      { title: '设置综合示例', path: '/media-settings' },
     ],
     [],
   );

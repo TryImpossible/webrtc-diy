@@ -10,6 +10,7 @@ import VideoFilter from './VideoFilter';
 import Resolution from './Resolution';
 import AudioVolume from './volume/AudioVolume';
 import DeviceSelect from './DeviceSelect';
+import MediaSettings from './media-settings/MediaSettings';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/resolution" Component={Resolution} exact />
         <Route path="/audio-volume" Component={AudioVolume} exact />
         <Route path="/device-select" Component={DeviceSelect} exact />
+        <Route path="/media-settings" Component={MediaSettings} exact />
       </Routes>
     </Router>
   );
