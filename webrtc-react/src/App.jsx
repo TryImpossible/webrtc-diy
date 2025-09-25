@@ -11,6 +11,7 @@ import Resolution from './Resolution';
 import AudioVolume from './volume/AudioVolume';
 import DeviceSelect from './DeviceSelect';
 import MediaSettings from './media-settings/MediaSettings';
+import MediaStreamAPI from './MediaStreamAPI';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/audio-volume" Component={AudioVolume} exact />
         <Route path="/device-select" Component={DeviceSelect} exact />
         <Route path="/media-settings" Component={MediaSettings} exact />
+        <Route path="/media-stream-api" Component={MediaStreamAPI} exact />
       </Routes>
     </Router>
   );
