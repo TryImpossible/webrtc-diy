@@ -43,7 +43,7 @@ function MediaStreamAPI() {
   // 删除音频轨道
   const btnRemoveAudioTrack = () => {
     console.log('removeAudioTrack()');
-    streamRef.current.removeTrack(streamRef.current.getAudioTracks()[0].id);
+    streamRef.current.removeTrack(streamRef.current.getAudioTracks()[0]);
   };
   // 获取视频轨道列表
   const btnGetVideoTracks = () => {

@@ -16,7 +16,8 @@ function Samples() {
       { title: '设备枚举', path: '/device-select' },
       { title: '设置综合示例', path: '/media-settings' },
       { title: 'MediaStreamAPI测试', path: '/media-stream-api' },
-      { title: '捕获Video作为媒体流', path: '/capture-video' },
+      { title: '捕获Video媒体流', path: '/capture-video' },
+      { title: '捕获Canvas媒体流', path: '/capture-canvas' },
     ],
     [],
   );
