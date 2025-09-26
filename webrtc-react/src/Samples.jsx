@@ -18,6 +18,7 @@ function Samples() {
       { title: 'MediaStreamAPI测试', path: '/media-stream-api' },
       { title: '捕获Video媒体流', path: '/capture-video' },
       { title: '捕获Canvas媒体流', path: '/capture-canvas' },
+      { title: '录制音频', path: '/record-audio' },
     ],
     [],
   );
