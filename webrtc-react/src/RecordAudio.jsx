@@ -6,8 +6,11 @@ import './styles/css/record-audio.scss';
 let mediaRecorder;
 // 录制数据
 let recordedBlobs;
-// 音频播放对象
 
+/**
+ * 录制音频示例
+ * @returns
+ */
 function RecordAudio() {
   // 初始操作状态
   const [status, setStatus] = useState('start');
@@ -89,7 +92,7 @@ function RecordAudio() {
     setTimeout(() => {
       document.body.removeChild(a);
       // URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的对象URL
-      window.URL.revokeObjectURL(url);
+      // window.URL.revokeObjectURL(url);
     }, 100);
     setStatus('start');
   };

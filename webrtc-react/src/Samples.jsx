@@ -19,6 +19,7 @@ function Samples() {
       { title: '捕获Video媒体流', path: '/capture-video' },
       { title: '捕获Canvas媒体流', path: '/capture-canvas' },
       { title: '录制音频', path: '/record-audio' },
+      { title: '录制视频', path: '/record-video' },
     ],
     [],
   );

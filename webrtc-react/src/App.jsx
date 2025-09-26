@@ -15,6 +15,7 @@ import MediaStreamAPI from './MediaStreamAPI';
 import CaptureVideo from './CaptureVideo';
 import CaptureCanvas from './CaptureCanvas';
 import RecordAudio from './RecordAudio';
+import RecordVideo from './RecordVideo';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/capture-video" Component={CaptureVideo} exact />
         <Route path="/capture-canvas" Component={CaptureCanvas} exact />
         <Route path="/record-audio" Component={RecordAudio} exact />
+        <Route path="/record-video" Component={RecordVideo} exact />
       </Routes>
     </Router>
   );
