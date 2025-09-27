@@ -1,15 +1,21 @@
-import { Button } from 'antd';
 import { useRef, useEffect, useState } from 'react';
-// 录制对象
-let mediaRecorder;
+import { Button } from 'antd';
+import './styles/css/record-canvas.scss';
+
 // 录制数据
 let recordedBlobs;
-// 捕获数据流
-let stream;
 
-function RecordScreen() {
+function RecordCanvas() {
+  // canvas对象
+  const canvasRef = useRef(null);
   // 视频对象
   const videoRef = useRef(null);
+  // 画布2d内容
+  const contextRef = useRef(null);
+  // 录制对象
+  const mediaRecorderRef = useRef(null);
+  // 捕获数据流
+  const streamRef = useRef(null);
   // 检测浏览器支持情况
   const [browserSupport, setBrowserSupport] = useState({});
 
@@ -36,6 +42,63 @@ function RecordScreen() {
 
     // 检测浏览器支持情况
     detectBrowserSupport();
+
+    // 画线
+    const drawLine = () => {
+      const canvas = canvasRef.current;
+      // 获取Canvas的2d内容
+      contextRef.current = canvas.getContext('2d');
+      const context = contextRef.current;
+
+      // 填充颜色
+      context.fillStyle = '#CCC';
+
+      // 绘制Canvas背景
+      // context.fillRect(0, 0, canvas.width, canvas.height);
+
+      context.lineWidth = 1;
+      // 画笔颜色
+      context.strokeStyle = '#FF0000';
+
+      // 监听画板鼠标按下事件，开始绘画
+      canvas.addEventListener('mousedown', startAction);
+      // 监听画板鼠标抬起事件，结束绘画
+      canvas.addEventListener('mouseup', endAction);
+    };
+
+    // 鼠标按下事件
+    const startAction = (event) => {
+      const context = contextRef.current;
+
+      // 绘制Canvas背景
+      const canvas = canvasRef.current;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      // 开始新的路径
+      context.beginPath();
+      // 将画笔移动到指定坐标，类似起点
+      context.moveTo(event.offsetX, event.offsetY);
+      // 开始绘制
+      context.stroke();
+      // 监听鼠标移动事件
+      canvasRef.current.addEventListener('mousemove', moveAction);
+    };
+
+    // 鼠标移动事件
+    const moveAction = (event) => {
+      const context = contextRef.current;
+      // 将画笔移动到结束坐标，类似终点
+      context.lineTo(event.offsetX, event.offsetY);
+      // 开始绘制
+      context.stroke();
+    };
+
+    // 鼠标抬起事件
+    const endAction = () => {
+      // 移除鼠标移动事件
+      canvasRef.current.removeEventListener('mousemove', moveAction);
+    };
+    drawLine();
   }, []);
 
   // 检测是否为 iOS 设备
@@ -81,29 +144,20 @@ function RecordScreen() {
     return 'mp4'; // 默认
   };
 
-  // 开始捕获桌面
-  const startCaptureScreen = async () => {
-    try {
-      // 调用getDisplayMedia()方法，将约束设置成{video: true}即可
-      stream = await navigator.mediaDevices.getDisplayMedia({
-        // 设置屏幕分辨率
-        video: {
-          width: 2080,
-          height: 1280,
-        },
-      });
-      const video = videoRef.current;
-      // 获取视频轨道
-      const videoTracks = stream.getVideoTracks();
-      // 读取视频资源名称
-      console.log('视频资源名称: ' + videoTracks[0].label);
-      window.stream = stream;
-      // 将视频对象的源指定为stream
-      video.srcObject = stream;
-      startRecord();
-    } catch (error) {
-      console.error('getDisplayMedia error: ', error);
-    }
+  // 开始捕获Canvas
+  const startCaptureCanvas = async () => {
+    streamRef.current = canvasRef.current.captureStream(30);
+    const stream = streamRef.current;
+    // 获取视频轨道
+    const videoTracks = stream.getVideoTracks();
+    // 读取视频资源名称
+    console.log(`视频资源名称：${videoTracks[0].label}`);
+    window.stream = stream;
+    // 将视频对象的源指定为stream
+    videoRef.current.srcObject = stream;
+
+    // 开始录制
+    startRecord();
   };
 
   // 开始录制
@@ -117,11 +171,12 @@ function RecordScreen() {
     console.log('录制选项:', options);
     try {
       // 创建MediaRecorder对象，准备录制
-      mediaRecorder = new MediaRecorder(window.stream, options);
+      mediaRecorderRef.current = new MediaRecorder(window.stream, options);
     } catch (error) {
       console.error('MediaRecorder创建失败：', error);
       return;
     }
+    const mediaRecorder = mediaRecorderRef.current;
     // 录制停止事件监听
     mediaRecorder.onstop = (event) => {
       console.log('录制停止：', event);
@@ -144,12 +199,12 @@ function RecordScreen() {
   // 停止录制
   const stopRecord = () => {
     // 停止录制
-    mediaRecorder.stop();
-    if (stream) {
+    mediaRecorderRef.current.stop();
+    if (streamRef.current) {
       // 停止所有视频轨道
-      stream.getTracks().forEach((track) => track.stop());
+      streamRef.current.getTracks().forEach((track) => track.stop());
       // 将stream设置为空
-      stream = null;
+      streamRef.current = null;
     }
 
     // 生成Blob文件
@@ -161,7 +216,7 @@ function RecordScreen() {
     a.style.display = 'none';
     a.href = url;
     // 指定下载文件及类型
-    a.download = `screen.${extension}`;
+    a.download = `canvas.${extension}`;
     // 将a标签添加到网页
     document.body.appendChild(a);
     a.click();
@@ -175,16 +230,30 @@ function RecordScreen() {
   return (
     <div className="container">
       <h1>
-        <span>录制屏幕示例</span>
+        <span>录制canvas示例</span>
       </h1>
-      {/* 捕获屏幕数据渲染 */}
-      <video className="video" ref={videoRef} autoPlay playsInline></video>
-      <Button onClick={startCaptureScreen} style={{ marginRight: '10px' }}>
-        开始
-      </Button>
-      <Button onClick={stopRecord}>停止</Button>
+      <div>
+        {/* 画布Canvasp容器 */}
+        <div className="small-canvas">
+          {/* Canvas不设置样式 */}
+          <canvas ref={canvasRef} width="320" height="240"></canvas>
+        </div>
+        <video
+          className="small-video"
+          ref={videoRef}
+          playsInline
+          autoPlay></video>
+      </div>
+      <div>
+        <Button className="button" onClick={startCaptureCanvas}>
+          开始
+        </Button>
+        <Button className="button" onClick={stopRecord}>
+          停止
+        </Button>
+      </div>
     </div>
   );
 }
 
-export default RecordScreen;
+export default RecordCanvas;

@@ -18,6 +18,7 @@ const routes = [
   { title: '录制音频', path: '/record-audio' },
   { title: '录制视频', path: '/record-video' },
   { title: '录制屏幕', path: '/record-screen' },
+  { title: '录制Canvas', path: '/record-canvas' },
 ];
 
 function Samples() {

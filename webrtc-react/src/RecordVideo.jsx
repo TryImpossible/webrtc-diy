@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { Button } from 'antd';
+import './styles/css/record-video.scss';
 
 // 录制对象
 let mediaRecorder;
