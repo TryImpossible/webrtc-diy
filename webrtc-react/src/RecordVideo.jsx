@@ -21,29 +21,29 @@ function RecordAudio() {
   const [browserSupport, setBrowserSupport] = useState({});
 
   useEffect(() => {
+    // 检测浏览器支持的格式
+    const detectBrowserSupport = () => {
+      const support = {
+        webm:
+          MediaRecorder.isTypeSupported('video/webm;codecs=vp9') ||
+          MediaRecorder.isTypeSupported('video/webm;codecs=vp8') ||
+          MediaRecorder.isTypeSupported('video/webm'),
+        mp4: MediaRecorder.isTypeSupported('video/mp4'),
+        mp4H264: MediaRecorder.isTypeSupported('video/mp4;codecs=avc1.42E01E'),
+      };
+
+      console.log('浏览器支持情况:', support);
+      setBrowserSupport(support);
+
+      // iPhone 优先使用 MP4
+      if (isIOS()) {
+        console.log('检测到 iOS 设备，将使用 MP4 格式');
+      }
+    };
+
     // 检测浏览器支持情况
     detectBrowserSupport();
   }, []);
-
-  // 检测浏览器支持的格式
-  const detectBrowserSupport = () => {
-    const support = {
-      webm:
-        MediaRecorder.isTypeSupported('video/webm;codecs=vp9') ||
-        MediaRecorder.isTypeSupported('video/webm;codecs=vp8') ||
-        MediaRecorder.isTypeSupported('video/webm'),
-      mp4: MediaRecorder.isTypeSupported('video/mp4'),
-      mp4H264: MediaRecorder.isTypeSupported('video/mp4;codecs=avc1.42E01E'),
-    };
-
-    console.log('浏览器支持情况:', support);
-    setBrowserSupport(support);
-
-    // iPhone 优先使用 MP4
-    if (isIOS()) {
-      console.log('检测到 iOS 设备，将使用 MP4 格式');
-    }
-  };
 
   // 检测是否为 iOS 设备
   const isIOS = () => {

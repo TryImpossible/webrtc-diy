@@ -16,6 +16,7 @@ import CaptureVideo from './CaptureVideo';
 import CaptureCanvas from './CaptureCanvas';
 import RecordAudio from './RecordAudio';
 import RecordVideo from './RecordVideo';
+import RecordScreen from './RecordScreen';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/capture-canvas" Component={CaptureCanvas} exact />
         <Route path="/record-audio" Component={RecordAudio} exact />
         <Route path="/record-video" Component={RecordVideo} exact />
+        <Route path="/record-screen" Component={RecordScreen} exact />
       </Routes>
     </Router>
   );
