@@ -8,7 +8,7 @@ const routes = [
   { title: '截取视频', path: '/canvas' },
   { title: '共享屏幕', path: '/screen-sharing' },
   { title: '视频滤镜', path: '/video-filter' },
-  { title: '分辨率设置', path: '/resolution' },
+  { title: '视频分辨率设置', path: '/resolution' },
   { title: '音量检测', path: '/audio-volume' },
   { title: '设备枚举', path: '/device-select' },
   { title: '设置综合示例', path: '/media-settings' },
@@ -19,6 +19,7 @@ const routes = [
   { title: '录制视频', path: '/record-video' },
   { title: '录制屏幕', path: '/record-screen' },
   { title: '录制Canvas', path: '/record-canvas' },
+  { title: 'RTCPeerConnection', path: '/peer-connection' },
 ];
 
 function Samples() {
