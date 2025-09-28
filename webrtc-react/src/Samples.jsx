@@ -21,6 +21,7 @@ const routes = [
   { title: '录制Canvas', path: '/record-canvas' },
   { title: 'RTCPeerConnection', path: '/peer-connection' },
   { title: 'Video发送至远端', path: '/peer-connection-video' },
+  { title: '电子白板同步', path: '/peer-connection-canvas' },
 ];
 
 function Samples() {

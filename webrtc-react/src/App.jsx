@@ -20,6 +20,7 @@ import RecordScreen from './RecordScreen';
 import RecordCanvas from './RecordCanvas';
 import PeerConnection from './PeerConnection';
 import PeerConnectionVideo from './PeerConnectionVideo';
+import PeerConnectionCanvas from './PeerConnectionCanvas';
 
 function App() {
   return (
@@ -46,6 +47,11 @@ function App() {
         <Route
           path="/peer-connection-video"
           Component={PeerConnectionVideo}
+          exact
+        />
+        <Route
+          path="/peer-connection-canvas"
+          Component={PeerConnectionCanvas}
           exact
         />
       </Routes>
