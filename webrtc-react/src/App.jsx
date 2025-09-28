@@ -19,6 +19,7 @@ import RecordVideo from './RecordVideo';
 import RecordScreen from './RecordScreen';
 import RecordCanvas from './RecordCanvas';
 import PeerConnection from './PeerConnection';
+import PeerConnectionVideo from './PeerConnectionVideo';
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
         <Route path="/record-screen" Component={RecordScreen} exact />
         <Route path="/record-canvas" Component={RecordCanvas} exact />
         <Route path="/peer-connection" Component={PeerConnection} exact />
+        <Route
+          path="/peer-connection-video"
+          Component={PeerConnectionVideo}
+          exact
+        />
       </Routes>
     </Router>
   );

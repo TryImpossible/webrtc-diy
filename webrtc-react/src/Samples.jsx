@@ -20,6 +20,7 @@ const routes = [
   { title: '录制屏幕', path: '/record-screen' },
   { title: '录制Canvas', path: '/record-canvas' },
   { title: 'RTCPeerConnection', path: '/peer-connection' },
+  { title: 'Video发送至远端', path: '/peer-connection-video' },
 ];
 
 function Samples() {
