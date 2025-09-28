@@ -21,6 +21,7 @@ import RecordCanvas from './RecordCanvas';
 import PeerConnection from './PeerConnection';
 import PeerConnectionVideo from './PeerConnectionVideo';
 import PeerConnectionCanvas from './PeerConnectionCanvas';
+import DataChannel from './DataChannel';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           Component={PeerConnectionCanvas}
           exact
         />
+        <Route path="/data-channel" Component={DataChannel} exact />
       </Routes>
     </Router>
   );
