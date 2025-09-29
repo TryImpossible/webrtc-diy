@@ -23,6 +23,7 @@ const routes = [
   { title: 'Video发送至远端', path: '/peer-connection-video' },
   { title: '电子白板同步', path: '/peer-connection-canvas' },
   { title: '数据通道发送文本消息', path: '/data-channel' },
+  { title: '数据通道发送文件', path: '/data-channel-file' },
 ];
 
 function Samples() {

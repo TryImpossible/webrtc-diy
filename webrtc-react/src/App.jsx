@@ -22,6 +22,7 @@ import PeerConnection from './PeerConnection';
 import PeerConnectionVideo from './PeerConnectionVideo';
 import PeerConnectionCanvas from './PeerConnectionCanvas';
 import DataChannel from './DataChannel';
+import DataChannelFile from './DataChannelFile';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           exact
         />
         <Route path="/data-channel" Component={DataChannel} exact />
+        <Route path="/data-channel-file" Component={DataChannelFile} exact />
       </Routes>
     </Router>
   );
