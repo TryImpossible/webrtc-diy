@@ -18,10 +18,23 @@
     <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
 
+    
+    <!-- Adapt to the foreground service type(s) desired, these are just examples -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION"/>
+
     <application
         android:label="webrtc_flutter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+           <!-- Adapt to the foreground service type(s) desired, these are just examples -->
+        <service
+            android:name="de.julianassmann.flutter_background.IsolateHolderService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync|specialUse|mediaProjection" />
+            
         <activity
             android:name=".MainActivity"
             android:exported="true"
