@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:webrtc_flutter/get_user_media.dart';
+
+const List<(String, Widget)> _routes = <(String, Widget)>[
+  ('GetUserMedia示例', GetUserMedia()),
+];
+
+class Samples extends StatelessWidget {
+  const Samples({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('WebRTC示例')),
+      body: ListView.builder(
+        itemCount: _routes.length,
+        itemBuilder: (BuildContext context, int index) {
+          final (String title, Widget page) = _routes[index];
+          return ListTile(
+            title: Text(title),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return page;
+                  },
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
