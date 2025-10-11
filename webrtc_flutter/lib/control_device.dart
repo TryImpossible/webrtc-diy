@@ -65,6 +65,9 @@ class _ControlDeviceState extends State<ControlDevice> {
     } catch (e) {
       print(e.toString());
     }
+    if (!mounted) {
+      return;
+    }
     // 设置当前状态为关闭状态
     setState(() {
       _isOpen = false;
