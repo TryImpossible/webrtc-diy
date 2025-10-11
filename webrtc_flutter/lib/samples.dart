@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:webrtc_flutter/control_device.dart';
 import 'package:webrtc_flutter/get_display_media.dart';
 import 'package:webrtc_flutter/get_user_media.dart';
 
 const List<(String, Widget)> _routes = <(String, Widget)>[
   ('GetUserMedia示例', GetUserMedia()),
   ('屏幕共享示例', GetDisplayMedia()),
+  ('控制设备', ControlDevice()),
 ];
 
 class Samples extends StatelessWidget {
