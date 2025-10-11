@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webrtc_flutter/control_device.dart';
+import 'package:webrtc_flutter/data_channel.dart';
 import 'package:webrtc_flutter/get_display_media.dart';
 import 'package:webrtc_flutter/get_user_media.dart';
 import 'package:webrtc_flutter/peer_connection.dart';
@@ -9,6 +10,7 @@ const List<(String, Widget)> _routes = <(String, Widget)>[
   ('屏幕共享示例', GetDisplayMedia()),
   ('控制设备', ControlDevice()),
   ('连接建立', PeerConnection()),
+  ('数据通道', DataChannel()),
 ];
 
 class Samples extends StatelessWidget {
